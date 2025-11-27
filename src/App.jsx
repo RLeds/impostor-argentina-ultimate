@@ -94,7 +94,7 @@ const vibrate = (pattern) => {
 const DEFAULT_CATEGORIES = [
   {
     id: "tv",
-    label: "Farándula",
+    label: "Famosos TV",
     icon: <Tv size={18} />,
     color: "from-purple-600 to-indigo-600",
     words: [
@@ -107,7 +107,7 @@ const DEFAULT_CATEGORIES = [
   },
   {
     id: "sports",
-    label: "Scaloneta",
+    label: "Deportes",
     icon: <Trophy size={18} />,
     color: "from-sky-500 to-blue-600",
     words: [
