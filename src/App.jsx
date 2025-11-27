@@ -604,7 +604,7 @@ export default function App() {
           </h2>
         </div>
 
-        <div className="flex-1 overflow-y-auto pb-24 custom-scrollbar space-y-6">
+        <div className="flex-1 overflow-y-auto pb-28 custom-scrollbar space-y-6">
           <div className="bg-slate-900 p-5 rounded-2xl border border-slate-800 shadow-lg">
             <div className="flex justify-between items-center mb-4">
               <label className="text-xs font-bold text-slate-400 uppercase flex gap-2 items-center">
@@ -852,10 +852,12 @@ export default function App() {
           </div>
         )}
 
-        <div className="pt-4 bg-slate-950 border-t border-slate-900 z-10 sticky bottom-0">
-          <Button onClick={startGame} className="h-14">
-            JUGAR <ChevronRight size={18} />
-          </Button>
+        <div className="fixed bottom-0 left-0 right-0 p-4 bg-slate-950 border-t border-slate-900 z-50">
+          <div className="max-w-md mx-auto">
+            <Button onClick={startGame} className="h-14">
+              JUGAR <ChevronRight size={18} />
+            </Button>
+          </div>
         </div>
       </div>
     );
