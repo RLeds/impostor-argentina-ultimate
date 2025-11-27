@@ -500,10 +500,10 @@ export default function App() {
   // 1. HOME SCREEN
   if (gameState === "home") {
     return (
-      <div className="min-h-screen bg-slate-950 text-white p-6 flex flex-col items-center justify-center relative overflow-hidden font-sans select-none">
+      <div className="min-h-screen w-full bg-slate-950 text-white p-4 sm:p-6 flex flex-col items-center justify-center relative overflow-hidden font-sans select-none">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(14,165,233,0.1),rgba(15,23,42,0)_50%)]"></div>
 
-        <div className="z-10 w-full max-w-sm flex justify-end gap-2 absolute top-4 right-4">
+        <div className="z-10 w-full max-w-sm flex justify-end gap-2 absolute top-4 right-4 px-4">
           <button
             onClick={() => setSoundEnabled(!soundEnabled)}
             className="p-3 bg-slate-900/50 rounded-full text-slate-400 backdrop-blur-md border border-slate-800"
@@ -524,7 +524,7 @@ export default function App() {
             />
           </div>
           <div>
-            <h1 className="text-6xl font-black italic tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-sky-200">
+            <h1 className="text-5xl sm:text-6xl font-black italic tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-sky-200">
               IMPOSTOR
             </h1>
             <div className="flex items-center justify-center gap-2 mt-2">
@@ -591,7 +591,7 @@ export default function App() {
     const allCategories = [...DEFAULT_CATEGORIES, ...customCategories];
 
     return (
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col p-4 font-sans select-none relative">
+      <div className="min-h-screen w-full bg-slate-950 text-slate-100 flex flex-col p-4 font-sans select-none relative overflow-x-hidden">
         <div className="flex items-center gap-3 mb-6 pt-2">
           <button
             onClick={() => setGameState("home")}
@@ -874,7 +874,7 @@ export default function App() {
             .backface-hidden { backface-visibility: hidden; }
             .rotate-y-180 { transform: rotateY(180deg); }
         `}</style>
-        <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 relative overflow-hidden select-none">
+        <div className="min-h-screen w-full bg-slate-950 flex flex-col items-center justify-center p-4 sm:p-6 relative overflow-hidden select-none">
           <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-900">
             <div
               className="h-full bg-gradient-to-r from-sky-500 to-blue-600 transition-all duration-500 ease-out"
@@ -914,7 +914,7 @@ export default function App() {
 
             {/* TARJETA CON FLIP 3D */}
             <div
-              className="perspective-1000 w-full h-80 mb-8 cursor-pointer group"
+              className="perspective-1000 w-full h-72 sm:h-80 mb-6 sm:mb-8 cursor-pointer group"
               onClick={nextStep}
             >
               <div
@@ -923,10 +923,10 @@ export default function App() {
                 }`}
               >
                 {/* FRENTE (OCULTO) */}
-                <div className="absolute inset-0 w-full h-full backface-hidden bg-slate-900 rounded-2xl border-2 border-slate-700 hover:border-sky-500/50 transition-colors shadow-2xl flex flex-col items-center justify-center p-6">
+                <div className="absolute inset-0 w-full h-full backface-hidden bg-slate-900 rounded-2xl border-2 border-slate-700 hover:border-sky-500/50 transition-colors shadow-2xl flex flex-col items-center justify-center p-4 sm:p-6">
                   <div className="w-full h-full border-2 border-dashed border-slate-800 rounded-xl flex flex-col items-center justify-center">
-                    <EyeOff size={48} className="text-slate-600 mb-4" />
-                    <h3 className="text-xl font-bold text-white uppercase tracking-wider mb-2">
+                    <EyeOff size={40} className="text-slate-600 mb-3 sm:mb-4" />
+                    <h3 className="text-lg sm:text-xl font-bold text-white uppercase tracking-wider mb-1 sm:mb-2">
                       Tocar para ver
                     </h3>
                     <p className="text-xs text-slate-500">
@@ -937,7 +937,7 @@ export default function App() {
 
                 {/* DORSO (REVELADO) */}
                 <div
-                  className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl border-2 shadow-2xl flex flex-col items-center justify-center p-6 ${
+                  className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-2xl border-2 shadow-2xl flex flex-col items-center justify-center p-4 sm:p-6 ${
                     isImposter
                       ? "bg-slate-900 border-rose-500"
                       : "bg-slate-900 border-sky-500"
@@ -946,10 +946,10 @@ export default function App() {
                   {isImposter ? (
                     <>
                       <Skull
-                        size={64}
-                        className="text-rose-500 mx-auto mb-4 animate-bounce"
+                        size={56}
+                        className="text-rose-500 mx-auto mb-3 sm:mb-4 animate-bounce"
                       />
-                      <h2 className="text-4xl font-black text-rose-500 uppercase tracking-tighter mb-2">
+                      <h2 className="text-3xl sm:text-4xl font-black text-rose-500 uppercase tracking-tighter mb-2">
                         IMPOSTOR
                       </h2>
                       <div className="bg-rose-950/50 px-3 py-1 rounded border border-rose-500/30 mt-2 inline-block">
@@ -957,19 +957,19 @@ export default function App() {
                           Categoría: {secretCategory}
                         </p>
                       </div>
-                      <p className="text-rose-400/60 text-[10px] mt-6 font-medium">
+                      <p className="text-rose-400/60 text-[10px] mt-4 sm:mt-6 font-medium">
                         Miente para sobrevivir.
                       </p>
                     </>
                   ) : (
                     <>
-                      <p className="text-sky-500/60 text-[10px] font-bold uppercase tracking-widest mb-4">
+                      <p className="text-sky-500/60 text-[10px] font-bold uppercase tracking-widest mb-3 sm:mb-4">
                         Palabra Secreta
                       </p>
-                      <h2 className="text-3xl font-black text-white break-words leading-tight">
+                      <h2 className="text-2xl sm:text-3xl font-black text-white break-words leading-tight px-2 text-center">
                         {secretWord}
                       </h2>
-                      <div className="mt-8 px-3 py-1 rounded-full bg-slate-950 border border-slate-800 inline-block">
+                      <div className="mt-6 sm:mt-8 px-3 py-1 rounded-full bg-slate-950 border border-slate-800 inline-block">
                         <p className="text-[10px] text-slate-400 uppercase font-bold tracking-widest">
                           {secretCategory}
                         </p>
@@ -1002,12 +1002,12 @@ export default function App() {
   if (gameState === "discuss") {
     // Detectamos si es una categoría de Nombres (tv, sports, music)
     const isNameCat = ["tv", "sports", "music"].includes(secretCategoryId);
-    
+
     // Solo mostramos el aviso si TIENE espacio Y NO es una categoría de nombres
     const isPhrase = secretWord.trim().indexOf(" ") !== -1 && !isNameCat;
 
     return (
-      <div className="min-h-screen bg-slate-950 flex flex-col p-6 font-sans select-none overflow-hidden">
+      <div className="min-h-screen w-full bg-slate-950 flex flex-col p-4 sm:p-6 font-sans select-none overflow-hidden">
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-2">
             <div
@@ -1061,9 +1061,9 @@ export default function App() {
             </div>
           )}
 
-          <div className="relative mb-8 py-4">
+          <div className="relative mb-6 sm:mb-8 py-4">
             <div
-              className={`text-8xl font-black font-mono tracking-tighter relative z-10 tabular-nums transition-colors duration-300 ${
+              className={`text-6xl sm:text-8xl font-black font-mono tracking-tighter relative z-10 tabular-nums transition-colors duration-300 ${
                 timeLeft < 30 ? "text-rose-500 scale-110" : "text-white"
               }`}
             >
@@ -1117,21 +1117,21 @@ export default function App() {
   // 5. REVEAL SCREEN
   if (gameState === "reveal") {
     return (
-      <div className="min-h-screen bg-slate-950 text-white p-6 overflow-y-auto font-sans">
-        <div className="max-w-md mx-auto pb-10 pt-4">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-black italic uppercase text-white mb-2">
+      <div className="min-h-screen w-full bg-slate-950 text-white p-4 sm:p-6 overflow-y-auto font-sans">
+        <div className="max-w-md mx-auto pb-10 pt-4 px-2">
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="text-3xl sm:text-4xl font-black italic uppercase text-white mb-2">
               Resultados
             </h1>
             <p className="text-slate-400 text-sm font-medium">¿Lo atraparon?</p>
           </div>
 
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-8 text-center relative overflow-hidden shadow-2xl">
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 mb-6 sm:mb-8 text-center relative overflow-hidden shadow-2xl">
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-sky-500/10 rounded-full blur-3xl"></div>
             <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">
               La palabra era
             </p>
-            <h2 className="text-4xl font-black text-sky-400 break-words mb-2">
+            <h2 className="text-3xl sm:text-4xl font-black text-sky-400 break-words mb-2 px-2">
               {secretWord}
             </h2>
             <span className="inline-block px-2 py-1 bg-slate-950 rounded text-[10px] text-slate-400 font-bold uppercase tracking-wider border border-slate-800">

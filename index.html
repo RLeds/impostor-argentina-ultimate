@@ -14,12 +14,26 @@
     
     <style>
       /* Fondo oscuro base para evitar pantallazo blanco al cargar */
-      body { 
-        background-color: #020617; 
+      html, body, #root {
+        background-color: #020617;
         margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
         font-family: system-ui, -apple-system, sans-serif;
         -webkit-tap-highlight-color: transparent;
         user-select: none;
+        overflow-x: hidden;
+      }
+
+      #root {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Mejoras para scrolling suave en móviles */
+      * {
+        -webkit-overflow-scrolling: touch;
       }
     </style>
   </head>
