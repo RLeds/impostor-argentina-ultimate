@@ -14,7 +14,7 @@
     
     <style>
       /* Fondo oscuro base para evitar pantallazo blanco al cargar */
-      html, body, #root {
+      html, body {
         background-color: #020617;
         margin: 0;
         padding: 0;
@@ -24,16 +24,31 @@
         -webkit-tap-highlight-color: transparent;
         user-select: none;
         overflow-x: hidden;
+        overflow-y: auto;
       }
 
       #root {
-        display: flex;
-        flex-direction: column;
+        min-height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #020617;
+        overflow-x: hidden;
       }
 
       /* Mejoras para scrolling suave en móviles */
       * {
         -webkit-overflow-scrolling: touch;
+        box-sizing: border-box;
+      }
+
+      /* Optimización para web */
+      @media (min-width: 640px) {
+        #root {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     </style>
   </head>
