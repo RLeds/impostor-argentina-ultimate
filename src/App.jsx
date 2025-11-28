@@ -146,7 +146,7 @@ const DEFAULT_CATEGORIES = [
     icon: <Beer size={18} />,
     color: "from-indigo-500 to-purple-800",
     words: [
-      "Boliche", "Previa", "After", "Fernet viajero", "Pogo",
+      "Boliche", "Previa", "After", "Fernet", "Pogo",
       "Sector VIP", "Patovica", "Cumbia", "RKT", "Resaca",
       "Comida de salida", "Jarra Loca", "Quebrar", "Perreo", "Bresh",
       "Escabio", "Chupe", "Mamarse", "Estar en pedo",
