@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import {
   Users,
   Eye,
@@ -561,7 +562,9 @@ export default function App() {
   // 1. HOME SCREEN
   if (gameState === "home") {
     return (
-      <div className="min-h-screen w-full bg-slate-950 text-white p-4 sm:p-6 flex flex-col items-center justify-center relative overflow-hidden font-sans select-none">
+      <>
+        <Analytics />
+        <div className="min-h-screen w-full bg-slate-950 text-white p-4 sm:p-6 flex flex-col items-center justify-center relative overflow-hidden font-sans select-none">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(14,165,233,0.1),rgba(15,23,42,0)_50%)]"></div>
 
         <div className="z-10 w-full max-w-sm flex justify-end gap-2 absolute top-4 right-4 px-4">
@@ -644,6 +647,7 @@ export default function App() {
           </div>
         )}
       </div>
+      </>
     );
   }
 
@@ -652,7 +656,9 @@ export default function App() {
     const allCategories = [...DEFAULT_CATEGORIES, ...customCategories];
 
     return (
-      <div className="min-h-screen w-full bg-slate-950 text-slate-100 flex flex-col p-4 font-sans select-none relative overflow-x-hidden">
+      <>
+        <Analytics />
+        <div className="min-h-screen w-full bg-slate-950 text-slate-100 flex flex-col p-4 font-sans select-none relative overflow-x-hidden">
         <div className="flex items-center gap-3 mb-6 pt-2">
           <button
             onClick={() => setGameState("home")}
@@ -968,6 +974,7 @@ export default function App() {
           </div>
         </div>
       </div>
+      </>
     );
   }
 
@@ -978,6 +985,7 @@ export default function App() {
 
     return (
       <>
+        <Analytics />
         <style>{`
             .perspective-1000 { perspective: 1000px; }
             .transform-style-3d { transform-style: preserve-3d; }
@@ -1117,7 +1125,9 @@ export default function App() {
     const isPhrase = secretWord.trim().indexOf(" ") !== -1 && !isNameCat;
 
     return (
-      <div className="min-h-screen w-full bg-slate-950 flex flex-col p-4 sm:p-6 font-sans select-none overflow-hidden">
+      <>
+        <Analytics />
+        <div className="min-h-screen w-full bg-slate-950 flex flex-col p-4 sm:p-6 font-sans select-none overflow-hidden">
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-2">
             <div
@@ -1225,13 +1235,16 @@ export default function App() {
           </Button>
         </div>
       </div>
+      </>
     );
   }
 
   // 5. REVEAL SCREEN
   if (gameState === "reveal") {
     return (
-      <div className="min-h-screen w-full bg-slate-950 text-white p-4 sm:p-6 overflow-y-auto font-sans">
+      <>
+        <Analytics />
+        <div className="min-h-screen w-full bg-slate-950 text-white p-4 sm:p-6 overflow-y-auto font-sans">
         <div className="max-w-md mx-auto pb-10 pt-4 px-2">
           <div className="text-center mb-6 sm:mb-8">
             <h1 className="text-3xl sm:text-4xl font-black italic uppercase text-white mb-2">
@@ -1302,7 +1315,12 @@ export default function App() {
           </div>
         </div>
       </div>
+      </>
     );
   }
-  return null;
+  return (
+    <>
+      <Analytics />
+    </>
+  );
 }
