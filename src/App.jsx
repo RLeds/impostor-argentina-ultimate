@@ -125,6 +125,26 @@ const DEFAULT_CATEGORIES = [
     ],
   },
   {
+    id: "soccer",
+    label: "Leyendas Fútbol",
+    icon: <Trophy size={18} />,
+    color: "from-green-600 to-emerald-700",
+    words: [
+      "Mano de Dios", "Gol del Siglo", "Barrilete Cósmico", "Pulga de Rosario",
+      "Rey de Copas", "Fideo Angelito Corredor", "Topo Gigio Caniggia",
+      "Kun Sergio Agüero", "Conejo Benítez Legendario", "Bruja Verón Mágico",
+      "Burrito Martínez Goleador", "Pipa Benedetto Goleador", "Dibu Damián Héroe",
+      "Papu Gómez Magia", "Cuti Romero Defensor", "Araña Romero Defensa",
+      "Huevo Acuña Lateral", "Matador Diego Milito", "Príncipe Redondo Aimar",
+      "Cabezón Abbondanzieri Arquero", "Ratón Ayala Marca", "Piojo López Campeón",
+      "Patón Bauza Técnico", "Cholo Simeone Guerrero", "Bati Gabriel Tanque",
+      "Casco Zanetti Ídolo", "Muñeco Gallardo Técnico", "Román Riquelme Diez",
+      "Pupi Zanetti Capitán", "Palermo Martín Goleador", "Pocho Lavezzi Velocidad",
+      "Pacho Mancuello Zurda", "Licha Martínez Defensor", "Ota Molina Goleador",
+      "Maravilla Martínez Boxeador", "Monstruo Ríos Marcelo",
+    ],
+  },
+  {
     id: "food",
     label: "Comida",
     icon: <Utensils size={18} />,
@@ -329,6 +349,7 @@ export default function App() {
   const [showCreator, setShowCreator] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [chaosMode, setChaosMode] = useState(false);
+  const [timerEnabled, setTimerEnabled] = useState(true);
 
   // Settings & Persistence
   const [playerCount, setPlayerCount] = useState(4);
@@ -355,6 +376,7 @@ export default function App() {
   const [selectedCatIds, setSelectedCatIds] = useState([
     "tv",
     "sports",
+    "soccer",
     "food",
     "joda",
     "music",
@@ -512,7 +534,7 @@ export default function App() {
         } else {
           setGameState("discuss");
           setTimeLeft(playerCount * 60);
-          setTimerActive(true);
+          setTimerActive(timerEnabled);
           if (chaosMode) playSound("chaos");
         }
         setIsProcessing(false); // Desbloquear
@@ -751,6 +773,53 @@ export default function App() {
               <div
                 className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
                   chaosMode ? "left-5" : "left-1"
+                }`}
+              ></div>
+            </div>
+          </div>
+
+          <div
+            onClick={() => {
+              setTimerEnabled(!timerEnabled);
+              playSound("click");
+            }}
+            className={`p-4 rounded-2xl border flex items-center justify-between cursor-pointer transition-all ${
+              timerEnabled
+                ? "bg-slate-900 border-slate-800"
+                : "bg-rose-900/20 border-rose-500/50"
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <div
+                className={`p-2 rounded-lg ${
+                  timerEnabled
+                    ? "bg-slate-800 text-slate-500"
+                    : "bg-rose-500 text-black"
+                }`}
+              >
+                <X size={20} strokeWidth={3} />
+              </div>
+              <div>
+                <p
+                  className={`font-bold text-sm ${
+                    timerEnabled ? "text-slate-300" : "text-rose-400"
+                  }`}
+                >
+                  Temporizador
+                </p>
+                <p className="text-[10px] text-slate-500">
+                  {timerEnabled ? "Activado" : "Desactivado"}
+                </p>
+              </div>
+            </div>
+            <div
+              className={`w-10 h-6 rounded-full relative transition-colors ${
+                timerEnabled ? "bg-sky-500" : "bg-slate-700"
+              }`}
+            >
+              <div
+                className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
+                  timerEnabled ? "left-5" : "left-1"
                 }`}
               ></div>
             </div>
@@ -1044,8 +1113,8 @@ export default function App() {
 
   // 4. DISCUSS SCREEN
   if (gameState === "discuss") {
-    // Detectamos si es una categoría de Nombres (tv, sports, music)
-    const isNameCat = ["tv", "sports", "music"].includes(secretCategoryId);
+    // Detectamos si es una categoría de Nombres (tv, sports, soccer, music)
+    const isNameCat = ["tv", "sports", "soccer", "music"].includes(secretCategoryId);
 
     // Solo mostramos el aviso si TIENE espacio Y NO es una categoría de nombres
     const isPhrase = secretWord.trim().indexOf(" ") !== -1 && !isNameCat;
@@ -1063,23 +1132,25 @@ export default function App() {
               Debate
             </span>
           </div>
-          <button
-            onClick={() => {
-              playSound("click");
-              setTimerActive(!timerActive);
-            }}
-            className={`p-2 rounded-lg border transition-all active:scale-95 ${
-              timerActive
-                ? "bg-slate-900 border-slate-800 text-slate-400"
-                : "bg-emerald-900/20 border-emerald-500/30 text-emerald-500"
-            }`}
-          >
-            {timerActive ? (
-              <span className="text-[10px] font-bold px-2">PAUSAR</span>
-            ) : (
-              <Play size={16} fill="currentColor" />
-            )}
-          </button>
+          {timerEnabled && (
+            <button
+              onClick={() => {
+                playSound("click");
+                setTimerActive(!timerActive);
+              }}
+              className={`p-2 rounded-lg border transition-all active:scale-95 ${
+                timerActive
+                  ? "bg-slate-900 border-slate-800 text-slate-400"
+                  : "bg-emerald-900/20 border-emerald-500/30 text-emerald-500"
+              }`}
+            >
+              {timerActive ? (
+                <span className="text-[10px] font-bold px-2">PAUSAR</span>
+              ) : (
+                <Play size={16} fill="currentColor" />
+              )}
+            </button>
+          )}
         </div>
 
         <div className="flex-1 flex flex-col items-center">
@@ -1105,16 +1176,18 @@ export default function App() {
             </div>
           )}
 
-          <div className="relative mb-6 sm:mb-8 py-4">
-            <div
-              className={`text-6xl sm:text-8xl font-black font-mono tracking-tighter relative z-10 tabular-nums transition-colors duration-300 ${
-                timeLeft < 30 ? "text-rose-500 scale-110" : "text-white"
-              }`}
-            >
-              {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? "0" : ""}
-              {timeLeft % 60}
+          {timerEnabled && (
+            <div className="relative mb-6 sm:mb-8 py-4">
+              <div
+                className={`text-6xl sm:text-8xl font-black font-mono tracking-tighter relative z-10 tabular-nums transition-colors duration-300 ${
+                  timeLeft < 30 ? "text-rose-500 scale-110" : "text-white"
+                }`}
+              >
+                {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? "0" : ""}
+                {timeLeft % 60}
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="w-full max-w-sm bg-slate-900/80 border border-slate-800 rounded-xl p-5 mb-6 flex items-center gap-4 shadow-lg">
             <div className="bg-slate-800 p-2.5 rounded-full text-sky-400">
