@@ -1135,7 +1135,7 @@ export default function App() {
                 playSound("click");
                 setTimerActive(!timerActive);
               }}
-              className={`p-2 rounded-lg border transition-all active:scale-95 ${
+              className={`p-2 rounded-lg border transition-all active:scale-95 flex items-center justify-center ${
                 timerActive
                   ? "bg-slate-900 border-slate-800 text-slate-400"
                   : "bg-emerald-900/20 border-emerald-500/30 text-emerald-500"
