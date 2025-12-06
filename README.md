@@ -1,16 +1,67 @@
-# React + Vite
+🧉 Impostor Argentina: Edición Definitiva
+El juego de deducción social criollo, gratuito y sin publicidades.
+Olvidate de las apps genéricas traducidas por Google. Impostor Argentina es la versión definitiva del clásico juego de mesa (estilo Spyfall), diseñada específicamente con referencias locales, mecánicas mejoradas y un modo de juego más caótico y divertido.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 ¿Por qué esta versión es mejor?
+Desarrollamos esta app porque las existentes eran aburridas o estaban llenas de anuncios. Acá tenés:
 
-Currently, two official plugins are available:
+💸 100% GRATIS: Sin compras in-app, sin suscripciones, sin interrupciones.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Categorías Bien Argentas: Nada de "Baseball" o "Acción de Gracias". Acá jugás con:
+Fútbol: Desde Messi hasta La Scaloneta.
+Comida: Milanesa, Choripán, Fernet.
+De Joda: Boliche, Previa, After.
+Marcas: Manaos, Marolio, SUBE.
+Famosos y Lugares: Desde Moria hasta el Obelisco.
 
-## React Compiler
+🔥 Modo CAOS: Una mecánica exclusiva donde cada ronda puede tener una regla ridícula obligatoria (Ej: "Hablar como cheto", "Todo lo que digan debe ser una pregunta", "Prohibido decir Sí o No").
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🌶️ Pack Picante (+18): Opcional para las previas más atrevidas.
 
-## Expanding the ESLint configuration
+✏️ Creá tus Propias Listas: ¿Tienen chistes internos en tu grupo? Podés crear categorías personalizadas en el momento.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🎮 Cómo Jugar
+Es un juego de "Pasar el Celular" (Pass & Play). No necesitan que todos tengan la app instalada.
+Configuración: Elegí la cantidad de jugadores (3 a 15), cuántos impostores querés y seleccioná las categorías.
+Roles: Pasen el celular. Cada jugador toca la carta para ver su rol.
+Ciudadanos: Ven la Palabra Secreta (Ej: "Milanesa").
+Impostor: Solo ve "IMPOSTOR". No sabe la palabra.
+Debate: Empieza el jugador marcado. Hacen preguntas por turnos sobre la palabra secreta.
+Objetivo Ciudadanos: Descubrir quién no sabe de qué están hablando.
+Objetivo Impostor: Mentir, deducir la palabra y pasar desapercibido.
+Votación: Cuando el Temporizador suena, señalen al sospechoso.
+
+🤖 Desarrollo Híbrido con IA
+Este proyecto es un ejemplo de la potencia de la programación asistida por Inteligencia Artificial.
+80% del Código (Claude Pro): La lógica de React, el manejo de estados complejos, el sistema de audio Web Audio API, las animaciones 3D de las cartas y la estructura de TailwindCSS fueron generados y refinados por Claude 3.5 Sonnet.
+20% Humano: Curaduría de palabras argentinas, ajuste de experiencia de usuario (UX), diseño visual y dirección creativa.
+El resultado es una aplicación moderna, rápida (Vite + React 19) y libre de errores comunes.
+
+🛠️ Tecnologías Usadas
+El stack es moderno y minimalista para asegurar que corra fluido en cualquier celular:
+Frontend: React 19
+Build Tool: Vite
+Estilos: Tailwind CSS (vía CDN para ligereza)
+Iconos: Lucide React
+Deploy: Vercel
+
+💻 Instalación Local
+Si querés clonar el proyecto para modificarlo o agregar tus propias palabras directo en el código:
+
+Clonar el repositorio:
+Bash
+git clone https://github.com/tu-usuario/impostor-argentina.git
+cd impostor-argentina
+
+Instalar dependencias:
+Bash
+npm install
+
+Correr el servidor de desarrollo:
+Bash
+npm run dev
+
+🤝 Contribuir
+¡Este proyecto se actualiza constantemente! ¿Tenés ideas para nuevas palabras o modos de juego?
+
+Hecho con ❤️, Mate y Claude Pro.
