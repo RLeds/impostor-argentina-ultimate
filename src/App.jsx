@@ -1221,7 +1221,7 @@ export default function App() {
             onClick={() => setGameState("reveal")}
             className="mt-auto mb-4"
           >
-            <Skull size={20} /> FINALIZAR Y VOTAR
+            <Skull size={20} /> FINALIZAR
           </Button>
         </div>
       </div>
