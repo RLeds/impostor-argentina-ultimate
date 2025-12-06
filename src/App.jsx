@@ -126,7 +126,7 @@ const DEFAULT_CATEGORIES = [
   },
   {
     id: "soccer",
-    label: "Fútbol Mundial",
+    label: "Fútbol",
     icon: <Trophy size={18} />,
     color: "from-green-600 to-emerald-700",
     words: [
