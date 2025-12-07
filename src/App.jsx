@@ -437,7 +437,7 @@ export default function App() {
     const newCat = {
       id: `custom_${Date.now()}`,
       label: newCatName,
-      icon: <Sparkles size={18} />,
+      // No guardamos componentes JSX - se renderizan dinámicamente
       color: "from-pink-500 to-rose-500",
       words: wordsArray,
       isCustom: true,
@@ -871,7 +871,7 @@ export default function App() {
                             : "bg-slate-800 text-slate-600"
                         }`}
                       >
-                        {cat.icon}
+                        {cat.isCustom ? <Sparkles size={18} /> : cat.icon}
                       </div>
                       {cat.isCustom && !isSelected && (
                         <div
