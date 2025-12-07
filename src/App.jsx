@@ -29,7 +29,8 @@ import {
   Smartphone,
   Briefcase,
   Dog,
-  Check
+  Check,
+  Goal
 } from "lucide-react";
 
 // --- SISTEMA DE AUDIO (Web Audio API) ---
@@ -128,7 +129,7 @@ const DEFAULT_CATEGORIES = [
   {
     id: "soccer",
     label: "Fútbol",
-    icon: <Trophy size={18} />,
+    icon: <Goal size={18} />,
     color: "from-green-600 to-emerald-700",
     words: [
       "Cristiano Ronaldo", "Neymar Junior", "Kylian Mbappé",
