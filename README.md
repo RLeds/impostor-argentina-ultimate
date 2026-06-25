@@ -92,4 +92,4 @@ Si querés clonar el proyecto para modificarlo o agregar tus propias palabras di
 
 ---
 
-*Hecho con ❤️, Mate y Claude Pro.*
+*Hecho con ❤️ y Claude Pro.*
